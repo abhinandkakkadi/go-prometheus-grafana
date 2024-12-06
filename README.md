@@ -3,7 +3,7 @@
 Pull and run prometheus
 
 ```sh
-docker run -p 9090:9090 -v /path/to/prometheus.yml:/etc/prometheus/prometheus.yml -d prom/prometheus
+docker run -p 9090:9090 -v $(pwd)/prometheus.yml:/etc/prometheus/prometheus.yml -d prom/prometheus
 ```
 
 Pull and run Loki
@@ -15,7 +15,7 @@ docker run -d --name=loki -p 3100:3100 -v $(pwd)/loki-config.yml:/etc/loki/local
 Pull and run promtail
 
 ```sh
-docker run --name=promtail -v /Users/mac/go-prometheus-grafana/logs:/logs -v /Users/mac/go-prometheus-grafana/promtail-config.yml:/etc/promtail/config.yml -d -p 9080:9080  grafana/promtail:latest
+docker run --name=promtail -v $(pwd)/logs:/logs -v /Users/mac/go-prometheus-grafana/promtail-config.yml:/etc/promtail/config.yml -d -p 9080:9080  grafana/promtail:latest
 ```
 
 Pull and run grafana
